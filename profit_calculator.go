@@ -2,22 +2,25 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func profitCalculator() {
-	const inflationRate float64 = 2.5
-	var investmentAmount, years float64
-	expectedReturnRate := 5.5
+	var revenue float64
+	var expenses float64
+	var taxRate float64
 
-	fmt.Printf("Enter investment amount: ")
-	fmt.Scan(&investmentAmount)
-	fmt.Printf("Enter years: ")
-	fmt.Scan(&years)
+	fmt.Print("Enter revenue: ")
+	fmt.Scan(&revenue)
+	fmt.Print("Enter expenses: ")
+	fmt.Scan(&expenses)
+	fmt.Print("Enter tax rate: ")
+	fmt.Scan(&taxRate)
 
-	futureValue := investmentAmount * math.Pow((1+expectedReturnRate/100), years)
-	futureRealValue := futureValue / math.Pow((1+inflationRate/100), years)
+	ebt := revenue - expenses
+	profit := ebt * (1 - taxRate/100)
+	ratio := profit / revenue * 100
 
-	fmt.Println("Future Value:", futureValue)
-	fmt.Println("Future Real Value:", futureRealValue)
+	fmt.Println("Earnings Before Tax:", ebt)
+	fmt.Println("Profit:", profit)
+	fmt.Println("Profit Ratio:", ratio)
 }
