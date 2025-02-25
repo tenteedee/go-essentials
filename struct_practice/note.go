@@ -27,8 +27,8 @@ func NewNote(title, content string) (*Note, error) {
 	}, nil
 }
 
-func (n *Note) String() string {
-	return fmt.Sprintf(`
+func (n *Note) Display() {
+	fmt.Printf(`
 Note Details
 Title: %s
 Content: %s
